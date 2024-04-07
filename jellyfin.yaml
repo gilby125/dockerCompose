@@ -1,0 +1,29 @@
+version: "3.5"
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/chicago
+      - ROC_ENABLE_PRE_VEGA=1
+    group_add:
+      - "108" # Change this to match your "render" host group id and remove this comment
+      - "44" # Change this to match your "video" host group id and remove this comment
+    volumes:
+      - jellyfin-config:/config
+      - jellyfin-cache:/cache
+      - jfin-smb:/media1
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    ports:
+      - 8096:8096
+    restart: unless-stopped
+volumes:
+  jfin-smb:
+    external: true
+    name: jfin-smb
+  jellyfin-config:
+  jellyfin-cache:
+  
