@@ -1,9 +1,17 @@
 name: sap
 services:
     abap-cloud-developer-trial:
+        sysctls:
+            - kernel.shmmni=32768
         stop_grace_period: "3600s"
         stdin_open: true
-        tty: true
         container_name: a4h
         hostname: vhcala4hci
+        ports:
+            - 3200:3200
+            - 3300:3300
+            - 8443:8443
+            - 30213:30213
+            - 50000:50000
+            - 50001:50001
         image: sapse/abap-cloud-developer-trial:ABAPTRIAL_2022
