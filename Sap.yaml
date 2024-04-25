@@ -1,0 +1,9 @@
+name: sap
+services:
+    abap-cloud-developer-trial:
+        stop_grace_period: "3600s"
+        stdin_open: true
+        tty: true
+        container_name: a4h
+        hostname: vhcala4hci
+        image: sapse/abap-cloud-developer-trial:ABAPTRIAL_2022
