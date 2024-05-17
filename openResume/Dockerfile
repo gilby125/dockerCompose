@@ -13,7 +13,7 @@ RUN git clone https://github.com/xitanggg/open-resume.git .
 RUN npm install
 
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 3900
 
 # Start the development server
 CMD ["npm", "run", "dev"]
